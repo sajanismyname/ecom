@@ -36,13 +36,13 @@ export const comments=pgTable("comments", {
 })
 
 export const usersRelations = relations(users, ({many})=>({
-    product: many(products),
-    comment: many(comments)
+    products: many(products),
+    comments: many(comments)
 }))
 
 export const productsRelations = relations(products, ({many, one})=>({
     user: one(users, {fields: [products.userId], references: [users.id]}),
-    comment: many(comments)
+    comments: many(comments)
 }))
 
 export const commentsRelations = relations(comments, ({one})=>({
@@ -51,11 +51,11 @@ export const commentsRelations = relations(comments, ({one})=>({
 }))
 
 //type inference vannu ko matlab if hamile index.ts ma user.User liyem vane tyo user ko type aba User hunxa matlab user{id, email, name, imageUrl, createdAt, updatedAt}
-export const User=typeof users.$inferSelect
-export const newUser=typeof users.$inferInsert
+export type User=typeof users.$inferSelect
+export type NewUser=typeof users.$inferInsert
 
-export const Product=typeof products.$inferSelect
-export const newProduct=typeof products.$inferInsert
+export type Product=typeof products.$inferSelect
+export type NewProduct=typeof products.$inferInsert
 
-export const Comment=typeof comments.$inferSelect
-export const newComment=typeof comments.$inferInsert
+export type Comment=typeof comments.$inferSelect
+export type NewComment=typeof comments.$inferInsert

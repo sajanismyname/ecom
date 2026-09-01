@@ -54,8 +54,8 @@ export const getAllProducts = async () => {
     })
 }
 
-export const getProductById = async (id:string)=>{
-    return await db.query.products.findMany({
+export const getProductById = async (id: string)=>{
+    return await db.query.products.findFirst({
         where: eq(products.id, id),
         with: {
             user: true,

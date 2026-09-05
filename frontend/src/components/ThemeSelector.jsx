@@ -41,10 +41,10 @@ function ThemeSelector() {
 
     const [theme,setTheme] =useState(()=>{
         if(typeof window !== "undefined"){
-            return localStorage.getItem("theme") || "forest"
+            return localStorage.getItem("theme") || "dark"
         }
 
-        return "forest"
+        return "dark"
     })
 
     useEffect(()=>{

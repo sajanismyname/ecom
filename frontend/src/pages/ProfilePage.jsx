@@ -1,8 +1,9 @@
-import React from 'react'
-
 function ProfilePage() {
   return (
-    <div>ProfilePage</div>
+    
+    <div>
+      <h1>This is Profile page</h1>
+    </div>
   )
 }
 
